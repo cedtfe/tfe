@@ -44,6 +44,7 @@ class Layout
 		$this->var['output'] .= $this->CI->load->view($name, $data, true);
 
 		$this->CI->load->view('../themes/' . $this->theme, $this->var);
+		
 	}
 
 	public function views($name, $data = array())
@@ -184,7 +185,7 @@ class Layout
 
 	public function set_theme($theme)
 	{
-		if(is_string($theme) AND !empty($theme) AND file_exists('./vehicule/themes/' . $theme . '.php'))
+		if(is_string($theme) AND !empty($theme) AND file_exists('./membres/themes/' . $theme . '.php'))
 		{
 			$this->theme = $theme;
 			return true;
