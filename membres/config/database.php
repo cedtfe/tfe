@@ -50,7 +50,8 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
-$db['default']['password'] = 'root';
+//$db['default']['password'] = 'root';
+$db['default']['password'] = '';
 $db['default']['database'] = 'tfe_2017';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
