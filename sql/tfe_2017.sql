@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 03 Septembre 2017 à 15:35
+-- Généré le :  Lun 04 Septembre 2017 à 18:40
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -114,7 +114,8 @@ INSERT INTO `ingredient` (`idIngredient`, `Name`, `Price`, `Amount`, `idType_Ing
 (25, 'Tomates', 0, 0, 8),
 (26, 'Carottes', 0, 0, 8),
 (27, 'Oeufs', 0, 0, 8),
-(28, 'Celeri', 0, 0, 8);
+(28, 'Celeri', 0, 0, 8),
+(29, 'Jambon/Fromage', 0, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -124,7 +125,7 @@ INSERT INTO `ingredient` (`idIngredient`, `Name`, `Price`, `Amount`, `idType_Ing
 
 CREATE TABLE `ligne_commande` (
   `idLigne_Commande` int(11) NOT NULL,
-  `Id_Sandwich` int(11) NOT NULL,
+  `Id_Ingredient` int(11) NOT NULL,
   `Price` double DEFAULT NULL,
   `Amount` int(11) DEFAULT NULL,
   `idCommande` int(11) NOT NULL
@@ -138,7 +139,7 @@ CREATE TABLE `ligne_commande` (
 
 CREATE TABLE `ligne_facture` (
   `idLigne_Commande` int(11) NOT NULL,
-  `Id_Sandwich` int(11) NOT NULL,
+  `Id_Ingredient` int(11) NOT NULL,
   `Price` double DEFAULT NULL,
   `Amount` int(11) DEFAULT NULL,
   `idFacture` int(11) NOT NULL
@@ -180,7 +181,7 @@ INSERT INTO `sandwich` (`idSandwich`, `Name`, `Price`, `Amount`) VALUES
 --
 
 CREATE TABLE `statut_commande` (
-  `idStatut_Commande` int(11) NOT NULL,
+  `idStatut_Commande_Type` int(11) NOT NULL,
   `idCommande` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -286,13 +287,13 @@ ALTER TABLE `ingredient`
 -- Index pour la table `ligne_commande`
 --
 ALTER TABLE `ligne_commande`
-  ADD PRIMARY KEY (`idLigne_Commande`,`Id_Sandwich`,`idCommande`);
+  ADD PRIMARY KEY (`idLigne_Commande`,`Id_Ingredient`,`idCommande`);
 
 --
 -- Index pour la table `ligne_facture`
 --
 ALTER TABLE `ligne_facture`
-  ADD PRIMARY KEY (`idLigne_Commande`,`Id_Sandwich`,`idFacture`);
+  ADD PRIMARY KEY (`idLigne_Commande`,`Id_Ingredient`,`idFacture`);
 
 --
 -- Index pour la table `sandwich`
@@ -304,7 +305,7 @@ ALTER TABLE `sandwich`
 -- Index pour la table `statut_commande`
 --
 ALTER TABLE `statut_commande`
-  ADD PRIMARY KEY (`idStatut_Commande`,`idCommande`),
+  ADD PRIMARY KEY (`idStatut_Commande_Type`,`idCommande`),
   ADD UNIQUE KEY `idCommande_UNIQUE` (`idCommande`);
 
 --
@@ -339,7 +340,7 @@ ALTER TABLE `commande`
 -- AUTO_INCREMENT pour la table `ingredient`
 --
 ALTER TABLE `ingredient`
-  MODIFY `idIngredient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `idIngredient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT pour la table `ligne_commande`
 --
