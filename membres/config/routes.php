@@ -40,6 +40,7 @@
 
 $route['default_controller'] = "front/home";
 $route['accueil'] = "front/accueil";
+$route['choixsandwich'] = "front/createSandwich";
 $route['404_override'] = '';
 
 
