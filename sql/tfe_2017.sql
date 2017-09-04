@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 04 Septembre 2017 à 20:35
+-- Généré le :  Lun 04 Septembre 2017 à 21:01
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -78,7 +78,7 @@ CREATE TABLE `facture` (
 --
 
 CREATE TABLE `image` (
-  `IdImage` int(11) NOT NULL,
+  `idImage` int(11) NOT NULL,
   `URL` varchar(45) NOT NULL,
   `description` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -287,7 +287,7 @@ ALTER TABLE `facture`
 -- Index pour la table `image`
 --
 ALTER TABLE `image`
-  ADD PRIMARY KEY (`IdImage`);
+  ADD PRIMARY KEY (`idImage`);
 
 --
 -- Index pour la table `ingredient`
@@ -352,7 +352,7 @@ ALTER TABLE `commande`
 -- AUTO_INCREMENT pour la table `image`
 --
 ALTER TABLE `image`
-  MODIFY `IdImage` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idImage` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `ingredient`
 --
