@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 04 Septembre 2017 à 18:40
+-- Généré le :  Lun 04 Septembre 2017 à 20:35
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -74,48 +74,56 @@ CREATE TABLE `facture` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `image`
+--
+
+CREATE TABLE `image` (
+  `IdImage` int(11) NOT NULL,
+  `URL` varchar(45) NOT NULL,
+  `description` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `ingredient`
 --
 
 CREATE TABLE `ingredient` (
   `idIngredient` int(11) NOT NULL,
-  `Name` varchar(45) NOT NULL,
+  `Name_Ingr` varchar(45) NOT NULL,
   `Price` double NOT NULL DEFAULT '0',
   `Amount` int(11) NOT NULL DEFAULT '0',
-  `idType_Ingredient` int(11) NOT NULL DEFAULT '1'
+  `idType_Ingredient` int(11) NOT NULL DEFAULT '1',
+  `IdImage` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `ingredient`
 --
 
-INSERT INTO `ingredient` (`idIngredient`, `Name`, `Price`, `Amount`, `idType_Ingredient`) VALUES
-(1, 'Pain blanc', 0, 0, 1),
-(2, 'Pain gris', 0, 0, 1),
-(3, 'Pain de campagne', 0, 0, 1),
-(7, 'Jambon', 0, 0, 3),
-(8, 'Fromage', 0, 0, 3),
-(9, 'Américain', 0, 0, 3),
-(10, 'Crabe', 0, 0, 3),
-(11, 'Jambon', 0, 0, 3),
-(12, 'Fromage', 0, 0, 3),
-(13, 'Américain', 0, 0, 3),
-(14, 'Crabe', 0, 0, 3),
-(15, 'Beurre', 0, 0, 7),
-(16, 'Mayonnaise', 0, 0, 7),
-(17, 'Ketchup', 0, 0, 7),
-(18, 'Andalouse', 0, 0, 7),
-(19, 'BBQ', 0, 0, 7),
-(20, 'Beurre', 0, 0, 7),
-(21, 'Mayonnaise', 0, 0, 7),
-(22, 'Ketchup', 0, 0, 7),
-(23, 'Andalouse', 0, 0, 7),
-(24, 'BBQ', 0, 0, 7),
-(25, 'Tomates', 0, 0, 8),
-(26, 'Carottes', 0, 0, 8),
-(27, 'Oeufs', 0, 0, 8),
-(28, 'Celeri', 0, 0, 8),
-(29, 'Jambon/Fromage', 0, 0, 3);
+INSERT INTO `ingredient` (`idIngredient`, `Name_Ingr`, `Price`, `Amount`, `idType_Ingredient`, `IdImage`) VALUES
+(1, 'Pain blanc', 0, 0, 1, 0),
+(2, 'Pain gris', 0, 0, 1, 0),
+(3, 'Pain de campagne', 0, 0, 1, 0),
+(7, 'Jambon', 0, 0, 2, 0),
+(8, 'Fromage', 0, 0, 2, 0),
+(9, 'Américain', 0, 0, 2, 0),
+(10, 'Crabe', 0, 0, 2, 0),
+(11, 'Jambon', 0, 0, 2, 0),
+(12, 'Fromage', 0, 0, 2, 0),
+(13, 'Américain', 0, 0, 2, 0),
+(14, 'Crabe', 0, 0, 2, 0),
+(15, 'Beurre', 0, 0, 3, 0),
+(16, 'Mayonnaise', 0, 0, 3, 0),
+(17, 'Ketchup', 0, 0, 3, 0),
+(18, 'Andalouse', 0, 0, 3, 0),
+(19, 'BBQ', 0, 0, 3, 0),
+(25, 'Tomates', 0, 0, 4, 0),
+(26, 'Carottes', 0, 0, 4, 0),
+(27, 'Oeufs', 0, 0, 4, 0),
+(28, 'Celeri', 0, 0, 4, 0),
+(29, 'Jambon/Fromage', 0, 0, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -229,11 +237,9 @@ CREATE TABLE `type_ingredient` (
 
 INSERT INTO `type_ingredient` (`idType_Ingredient`, `Name`) VALUES
 (1, 'Pain'),
-(3, 'Garniture Principale'),
-(4, 'Garniture Secondaire'),
-(7, 'Sauce'),
-(8, 'Crudités'),
-(9, 'Sauce');
+(2, 'Garniture'),
+(3, 'Sauce'),
+(4, 'Crudités');
 
 -- --------------------------------------------------------
 
@@ -276,6 +282,12 @@ ALTER TABLE `composition_sandwich`
 --
 ALTER TABLE `facture`
   ADD PRIMARY KEY (`idFacture`,`Reference`);
+
+--
+-- Index pour la table `image`
+--
+ALTER TABLE `image`
+  ADD PRIMARY KEY (`IdImage`);
 
 --
 -- Index pour la table `ingredient`
@@ -336,6 +348,11 @@ ALTER TABLE `utilisateur`
 --
 ALTER TABLE `commande`
   MODIFY `idCommande` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `image`
+--
+ALTER TABLE `image`
+  MODIFY `IdImage` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `ingredient`
 --
