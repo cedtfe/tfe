@@ -22,8 +22,8 @@
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost:8888/tfe/tfe/';
-//$config['base_url'] = 'http://localhost/tfe_2017/tfe/';
+//$config['base_url'] = 'http://localhost:8888/tfe/tfe/';
+$config['base_url'] = 'http://localhost/tfe_2017/tfe/';
 
 /*
 |--------------------------------------------------------------------------
