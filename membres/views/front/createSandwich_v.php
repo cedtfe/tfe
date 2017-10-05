@@ -96,17 +96,31 @@
 
 <?php } ?>
             <br> <br>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Commander
-                <i class="material-icons right">send</i>
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Confirmer<i class="material-icons right">send</i></a>
+            <button class="btn waves-effect waves-light" type="submit" name="action" id="confirmer" style="display:none;">Confirmer
+
             </button>
         </form>
     </div>
 </div>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script type="text/javascript" src="./assets/front/js/materialize.min.js"></script>
-<script>
+<!-- Modal Trigger -->
 
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4>Modal Header</h4>
+    <p>A bunch of text</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="ajouter">Ajouter</a>
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="commander">Commander</a>
+  </div>
+</div>
+
+<script>
   $(document).ready(function() {
     $('select').material_select();
+    $('.modal').modal();
   });
 </script>
