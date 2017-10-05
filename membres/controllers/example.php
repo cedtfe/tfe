@@ -9,7 +9,7 @@ class Example extends CI_Controller {
 	    $this->load->library('html2pdf');
 
 	    //Set folder to save PDF to
-	    $this->html2pdf->folder('./pdfs/');
+	    $this->html2pdf->folder('./assets/pdfs/');
 
 	    //Set the filename to save/download as
 	    $this->html2pdf->filename('test2.pdf');
