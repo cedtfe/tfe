@@ -11,11 +11,3 @@ class Lrdlg
   }
 
 }
-/* =============================================================================
-	name : 				Lrdlg
-	description : Boite à outils de développement de leradiologue
-	author : 			leradiologue
-	création : 		2017-07-28
-	modifier le : 2017-07-28
-	url : 				http://www.lrdlg.eu
-============================================================================= */

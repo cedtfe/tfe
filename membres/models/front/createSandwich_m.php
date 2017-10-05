@@ -31,4 +31,16 @@ class CreateSandwich_m extends CI_Model
 
   }
 
+  public function get_fullIngr(){
+
+    return $this->db->select('*')
+                    ->from('ingredient')
+                    ->join('image', 'image.idImage = ingredient.idImage', 'left')
+                    ->join('type_ingredient', 'type_ingredient.IdType_ingredient = ingredient.IdType_ingredient')
+                    ->order_by('ingredient.IdType_Ingredient', 'asc')
+                    ->get()
+                    ->result();
+
+  }
+
 }

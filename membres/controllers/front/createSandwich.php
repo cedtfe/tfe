@@ -20,7 +20,13 @@ class CreateSandwich extends CI_Controller {
    // récupération des données sandwich
    $data['ingr'] = $this->cs->get_ingr();
    $data['typeIngr'] = $this->cs->get_typeIngr();
-  
+   $data['ingrFull'] = $this->cs->get_fullIngr();
+
+   //$this->lrdlg->pre($data['ingrFull']);
+
+
+
+
    // appel des vues
    $this->layout->views('front/navTopConnect');
    $this->layout->view('front/createSandwich_v', $data);
